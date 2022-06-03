@@ -1,6 +1,7 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 100%;
+    background-color: blue;
 }
 
 .startTime {
@@ -19,17 +20,6 @@ body {
 
 input[type="text"] {
     font-size: 80%;
-}
-
-li {
-    padding: 10px;
-    list-style: deicmal inside none;
-}
-
-ol {
-    padding-left: 0px;
-    overflow: auto;
-    max-height: 500px;
 }
 
 .wrapper {
