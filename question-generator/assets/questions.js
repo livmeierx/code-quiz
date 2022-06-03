@@ -10,6 +10,26 @@ var questions = [
       choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
       answer: "parentheses",
     },
+    {
+      title: "Arrays in JavaScript can be used to store ___.",
+      choices: [
+        "booleans",
+        "strings and numbers",
+        "more arrays",
+        "all of the above",
+      ],
+      answer: "all of the above"
+    },
+    {
+      title: "String values must be enclosed within ___ when being assigned to variables.",
+      choices: ["parentheses", "curly brackets", "commas", "quotes"],
+      answer: "quotes"
+    },
+    {
+      title: "A useful tool used during developmenet and debugging for printing content to the debugger is:",
+      choices: ["JavaScript", "console.log", "for loops", "terminal"],
+      answer: "console.log"
+    }
   ];
   
   var questionEl = document.querySelector("#question");
