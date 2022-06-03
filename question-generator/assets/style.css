@@ -3,22 +3,18 @@ body {
     font-size: 100%;
 }
 
-button {
+.startTime {
     margin: 10px;
     display: inline-block;
-    font-size: 80%;
+    font-size: 120%;
     background-color: pink;
     padding: 5px 10px;
     color: black;
     border: 0;
 }
 
-button:hover {
+.startTime:hover {
     background-color: green;
-}
-
-.choices button {
-    display: block;
 }
 
 input[type="text"] {
@@ -43,12 +39,6 @@ ol {
 
 .hide {
     display: none;
-}
-
-.scores {
-    position: absolute;
-    margin-top: 10px;
-    margin-right: 10 px;
 }
 
 .start {

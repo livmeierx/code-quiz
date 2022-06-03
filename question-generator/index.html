@@ -5,39 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/question-generator/assets/style.css">
     <title>Code Quiz</title>
-    <style>
-      .choices {
-        list-style: none;
-      }
-    </style>
+    
   </head>
-  <body>
-    <div id="timer"></div>
+  <body background="#">
 
-    <div id="question"></div>
+    <div id="wrapper">
+      <div id="currentTime"></div>
+      <div id="questionsDiv">
+        <h1>Welcome to the Coding Quiz Challenge!</h1>
+        <p>Play along and answer the following code-related questions within the time provided.</p>
+        <button id="startTime">Start Quiz</button>
+      </div>
+    </div>
 
-      <ul id="option-list" class="choices"></ul>
-
-    <div id="question-result"></div>
-
-    <div id="change-question">Welcome to the Code Quiz!</div>
-
-    <div id="timer"></div>
-
-    <div id="question"></div>
-
-      <ul id="option-list"></ul>
-
-    <div id="question-result"></div>
     
-    <div id="timer"></div>
-    
-    <div id="question"></div>
-  
-      <ul id="option-list"></ul>
-  
-    <div id="question-result"></div>
 
-    <script src="./assets/script.js"></script>
+    <script src="./assets/questions.js"></script>
   </body>
 </html>
