@@ -3,7 +3,7 @@
 }
 
 :root {
-    --primary: #BCD979;
+    --primary: #7D6D61;
     --secondary: #9DAD6F;
     --tertiary: #5E574D;
     --white: rgb(255, 255, 255);
@@ -11,7 +11,7 @@
 }
 
 body {
-    background: #C3DFE0;
+    background: #BCD979;
     color: var(--secondary);
     margin: 0;
     padding: 0;
