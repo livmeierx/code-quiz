@@ -8,11 +8,13 @@ var containerQuestionEl = document.getElementById("question-container");
       var listHighScoreEl = document.getElementById("high-score-list")
       var correctEl = document.getElementById("correct")
       var wrongEl = document.getElementById("wrong")
+
       //buttons
       var btnStartEl = document.querySelector("#start-game");
       var btnGoBackEl = document.querySelector("#go-back")
       var btnClearScoresEl = document.querySelector("#clear-high-scores")
-      //questions/answers element
+      
+      //questions/answers 
       var questionEl = document.getElementById("question")
       var answerbuttonsEl = document.getElementById("answer-buttons")
       var timerEl = document.querySelector("#timer");
