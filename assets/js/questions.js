@@ -290,3 +290,21 @@ var displayHighScores = function() {
       }
   
 }
+
+// clear high scores
+var clearScores = function () {
+  HighScores = [];
+
+  while (listHighScoreEl.firstChild) {
+    listHighScoreEl.removeChild(listHighScoreEl.firstChild);
+  }
+  localStorage.clear(HighScores);
+}
+
+loadHighScore()
+
+btnStartEl.addEventListener("click", startGame)
+formInitials.addEventListener("submit", createHighScore)
+ViewHighScoreEl.addEventListener("click", displayHighScores)
+btnGoBackEl.addEventListener("click", renderStartPage)
+btnClearScoresEl.addEventListener("click", clearScores)
