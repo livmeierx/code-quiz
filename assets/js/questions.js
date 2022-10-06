@@ -165,61 +165,128 @@ var answerWrong = function() {
   }
 }
 
-//   var questionEl = document.querySelector("#question");
-//   var optionListEl = document.querySelector("#option-list");
-//   var questionResultEl = document.querySelector("#question-result");
-//   var timerEl = document.querySelector("#timer");
-  
-//   var questionIndex = 0;
-//   var correctCount = 0;
-  
-//   function renderQuestion() {
-//     questionEl.textContent = questions[questionIndex].question;
-  
-//     optionListEl.innerHTML = "";
-  
-//     var choices = questions[questionIndex].choices;
-//     var choicesLenth = choices.length;
-  
-//     for (var i = 0; i < choicesLenth; i++) {
-//       var questionListItem = document.createElement("li");
-//       questionListItem.textContent = choices[i];
-//       optionListEl.append(questionListItem);
-//     }
-//   }
-  
-//   function nextQuestion() {
-//     questionIndex++;
-//     renderQuestion();
-//   }
-  
-//   function checkAnswer(event) {
-//     // check if answer is correct
-//     if (event.target.matches("li")){
-//         var answer = event.target.textContent;
-//         if (answer === questions[questionIndex].answer) {
-//             questionResultEl.textContent = "correct";
-//             // Update the correctCount if necessary
-//             correctCount++;
-//             // Notify the user if their response is correct/wrong.
-//         } else {
-//             questionResultEl.textContext = "incorrect";
-//         }
-//     }
-    
-//     // wait 2 seconds and call next question
-//     setTimeout(nextQuestion, 2000);
-//   }
-  
-//   //add event listener to option-list and call checkAsnwer function
-//   optionListEl.addEventListener("click", checkAnswer);
-  
-//   function renderQuestion() {}
-  
-//   renderQuestion();
+// check answer
+var answerCheck = function(event) {
+  var selectedanswer = event.target
+    if (arrayShuffledQuestions[QuestionIndex].a === selectedanswer.innerText) {
+      answerCorrect()
+      score = score + 7
+    }
+    else {
+      answerWrong()
+      score = score -1;
+      timeleft = timeleft - 3;
+    };
+ // go to next question
+    QuestionIndex++
+    if (arrayShuffledQuestions.length > QuestionIndex + 1) {
+      setQuestion()
+    }
+    else {
+      gameover = "true";
+      showScore();
+    }   
+}
 
-// document.querySelector("#change-question")
-//   .addEventListener("click", function() {
-//       questionIndex++;
-//       renderQuestion();
-//   })
+// display score at end of game
+var showScore = function () {
+  containerQuestionEl.classList.add("hide");
+  containerEndEl.classList.remove("hide");
+  containerEndEl.classList.add("show");
+
+  var scoreDisplay = document.createElement("p");
+  scoreDisplay.innerText = ("Your score is " + score + "!");
+  containerScoreEl.appendChild(scoreDisplay);
+}
+
+// high score values
+var createHighScore = function(event) {
+  event.preventDefault()
+  var initials = document.querySelector("#initials").ariaValueMax;
+  if (!initials) {
+    alert("Please enter your initials.");
+    return;
+  }
+
+  formInitials.reset();
+
+  var HighScore = {
+    initials: initials,
+    score: score
+  }
+
+  HighScores.push(HighScore);
+  HighScores.sort((a, b) => {return b.score-a.score});
+
+  while (listHighScoreEl.firstChild) {
+    listHighScoreEl.removeChild(listHighScoreEl.firstChild)
+  }
+
+  for (var i = 0; i < HighScores.length; i++) {
+    var highscoreEl = document.createElement("li");
+    highscoreEl.className = "high-score";
+    highscoreEl.innerHTML = HighScores[i].initials + " - " + HighScores[i].score;
+    listHighScoreEl.appendChild(highscoreEl);
+  }
+
+  saveHighScore();
+  displayHighScores();
+}
+
+// save high score
+var saveHighScore = function () {
+  localStorage.setItem("HighScores", JSON.stringify(HighScores))
+}
+
+// load scores
+var loadHighScore = function () {
+  var LoadedHighScores = localStorage.getItem("HighScores")
+  if (!LoadedHighScores) {
+    return false;
+  }
+
+  LoadedHighScores = JSON.parse(LoadedHighScores);
+  LoadedHighScores.sort((a, b) => {return b.score-a.score})
+
+  for (var i = 0; i < LoadedHighScores.length; i++) {
+    var highscoreEl = document.createElement("li");
+    highscoreEl.className = "high-score";
+    highscoreEl.innerText = LoadedHighScores[i].initials + " - " +LoadedHighScores[i].score;
+    listHighScoreEl.appendChild(highscoreEl);
+
+    HighScores.push(LoadedHighScores[i]);
+  }
+}
+
+// display high score screen
+var displayHighScores = function() {
+
+  containerHighScoresEl.classList.remove("hide");
+  containerHighScoresEl.classList.add("show");
+  gameover = "true"
+
+  if (containerEndEl.className = "show") {
+      containerEndEl.classList.remove("show");
+      containerEndEl.classList.add("hide");
+      }
+  if (containerStartEl.className = "show") {
+      containerStartEl.classList.remove("show");
+      containerStartEl.classList.add("hide");
+      }
+      
+  if (containerQuestionEl.className = "show") {
+      containerQuestionEl.classList.remove("show");
+      containerQuestionEl.classList.add("hide");
+      }
+
+  if (correctEl.className = "show") {
+      correctEl.classList.remove("show");
+      correctEl.classList.add("hide");
+  }
+
+  if (wrongEl.className = "show") {
+      wrongEl.classList.remove("show");
+      wrongEl.classList.add("hide");
+      }
+  
+}
