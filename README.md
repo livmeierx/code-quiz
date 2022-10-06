@@ -5,7 +5,7 @@ Liv's Code Quiz Version 2.0.0
 - [Description](#description)
 - [Technologies](#technologies)
 - [Contributors](#contributors)
-- [Questions] (#questions)
+- [Questions](#questions)
 
 ## Description
 This project includes starter code to create a timed quiz on JavaScript fundamentals that stores high scores. The game is meant to keep high scores in local storage so the user can keep track of their progress. 
